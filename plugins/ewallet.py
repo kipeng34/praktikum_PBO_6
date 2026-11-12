@@ -11,9 +11,13 @@ class EWallet(PaymentMethod):
         super().__init__(f"E-Wallet {provider}")
         self.saldo = saldo
  
+ 
+    def biaya_admin(self, jumlah: float) -> float:
+        return jumlah * 0.01
     def validasi(self, jumlah: float) -> bool:
         return jumlah <= self.BATAS_TRANSAKSI and self.saldo >= jumlah
  
     def bayar(self, jumlah: float) -> str:
         self.saldo -= jumlah
         return buat_id("EWL")
+

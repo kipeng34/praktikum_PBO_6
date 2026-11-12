@@ -16,3 +16,5 @@ class TransferBank(PaymentMethod):
         self.saldo -= jumlah
         return buat_id("TRF")
 
+    def biaya_admin(self, jumlah: float) -> float:
+        return 2500.0  # Sesuai ketentuan biaya admin transfer bank tetap Rp2.500
